@@ -34,7 +34,7 @@ def draw_bounding_boxes_on_image_array(image, boxes, color=['r', 'g', 'b'], thic
     draw_bounding_boxes_on_image(image, boxes, color=[], thickness=1,display_str_list=())
     return np.array(rgbimg)
 
-def draw_bounding_boxes_on_image(image,boxes, color=[], thickness=1,display_str_list=()): # Added colon
+def draw_bounding_boxes_on_image(image,boxes, color=[], thickness=1,display_str_list=()): 
     boxes_shape = boxes.shape
     if not boxes_shape:
         return
