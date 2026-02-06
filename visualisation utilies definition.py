@@ -30,10 +30,7 @@ def draw_bounding_boxes_on_image_array(image, boxes, color=['r', 'g', 'b'], thic
     image_pil = PIL.Image.fromarray(image)
     rgbimg = PIL.Image.new("RGBA", image_pil.size)
     rgbimg.paste(image_pil)
-    # Note: The recursive call here will likely lead to a runtime error
-    # due to Python's function overloading behavior, where the last defined
-    # function with the same name overwrites previous ones.
-    # This part needs a logical review after syntax fixes.
+  
     draw_bounding_boxes_on_image(image, boxes, color=[], thickness=1,display_str_list=())
     return np.array(rgbimg)
 
@@ -147,5 +144,5 @@ def display_digits_with_boxes(digitss, predictions, pred_bboxes, bboxes, iou, ti
         color = "black"
         if (n_iou[i][0] < iou_threshold):
           color = "red"
-        # Corrected: Pass color and transform as keyword arguments to ax.text
+        
         ax.text(0.2, -0.3, "iou: %s" % (n_iou[i][0]), color=color, transform=ax.transAxes)
